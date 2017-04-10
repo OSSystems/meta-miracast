@@ -15,7 +15,7 @@ DEPENDS = "glib-2.0 gstreamer1.0 systemd"
 inherit autotools pkgconfig
 
 SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https"
-SRCREV = "c0f49c3b9c958fb114cbea4268dabc99bc804652"
+SRCREV = "fe9a39bee8b5fc05cca48b50a98426942826f5cb"
 
 S = "${WORKDIR}/git"
 

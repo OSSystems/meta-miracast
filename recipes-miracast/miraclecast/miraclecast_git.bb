@@ -34,6 +34,7 @@ PACKAGES =+ "${PN}-resources"
 
 FILES_${PN} += " \
     ${sysconfdir}/dbus-1/system.d \
+    ${datadir}/bash-completion/completions/miraclecast-completion \
 "
 FILES_${PN}-resources = " \
     ${bindir}/*.sh \

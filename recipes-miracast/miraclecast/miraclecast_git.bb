@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "\
 
 DEPENDS = "glib-2.0 gstreamer1.0 systemd"
 
-inherit autotools pkgconfig
+inherit autotools bash-completion pkgconfig
 
 SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https"
 SRCREV = "fe9a39bee8b5fc05cca48b50a98426942826f5cb"
@@ -34,7 +34,6 @@ PACKAGES =+ "${PN}-resources"
 
 FILES_${PN} += " \
     ${sysconfdir}/dbus-1/system.d \
-    ${datadir}/bash-completion/completions/miraclecast-completion \
 "
 FILES_${PN}-resources = " \
     ${bindir}/*.sh \

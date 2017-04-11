@@ -14,6 +14,9 @@ DEPENDS = "glib-2.0 gstreamer1.0 systemd"
 
 inherit autotools bash-completion pkgconfig
 
+# Miraclecast requires systemd
+REQUIRED_DISTRO_FEATURES = "systemd"
+
 SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https"
 SRCREV = "fe9a39bee8b5fc05cca48b50a98426942826f5cb"
 

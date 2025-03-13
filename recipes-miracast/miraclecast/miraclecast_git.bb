@@ -12,17 +12,17 @@ LIC_FILES_CHKSUM = "\
 
 DEPENDS = "glib-2.0 gstreamer1.0 systemd"
 
-inherit autotools bash-completion pkgconfig
+inherit autotools bash-completion pkgconfig features_check
 
 # Miraclecast requires systemd
 REQUIRED_DISTRO_FEATURES = "systemd"
 
-SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https"
+SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https;branch=master"
 SRCREV = "fe9a39bee8b5fc05cca48b50a98426942826f5cb"
 
 S = "${WORKDIR}/git"
 
-do_install_append() {
+do_install:append() {
     install -Dm 0644 ${S}/res/org.freedesktop.miracle.conf ${D}${sysconfdir}/dbus-1/system.d/org.freedesktop.miracle.conf
     install -Dm 0755 ${S}/res/kill-wpa.sh ${D}${bindir}/kill-wpa.sh
     install -Dm 0755 ${S}/res/miracle-utils.sh ${D}${bindir}/miracle-utils.sh
@@ -35,14 +35,14 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-resources"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${sysconfdir}/dbus-1/system.d \
 "
-FILES_${PN}-resources = " \
+FILES:${PN}-resources = " \
     ${bindir}/*.sh \
 "
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     bash \
     iproute2 \
     gstreamer1.0-libav \
@@ -52,6 +52,6 @@ RDEPENDS_${PN} += " \
     python3-core \
 "
 
-RDEPENDS_${PN}-resources += " \
+RDEPENDS:${PN}-resources += " \
     bash \
 "

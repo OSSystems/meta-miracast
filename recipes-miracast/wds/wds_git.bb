@@ -1,21 +1,21 @@
 SUMMARY = "Wireless Display Software For Linux OS (WDS)"
 HOMEPAGE = "https://01.org/wds"
 BUGTRACKER = "https://github.com/01org/wds/issues"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=cb8aedd3bced19bd8026d96a8b6876d7"
 
-DEPENDS = "gstreamer1.0"
+DEPENDS = "gstreamer1.0 bison-native"
 
-inherit cmake lib_package
+inherit cmake pkgconfig
 
 SRCREV = "a488b169d724d6b4cfcd7037dbab1f1c2bf04f3b"
-SRC_URI = "git://github.com/01org/wds.git"
+SRC_URI = "git://github.com/01org/wds.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += "-DCMAKE_SKIP_RPATH=ON"
 
-do_install_append() {
+do_install:append() {
     install -Dm 0755 ${B}/desktop_source/desktop-source-test ${D}${bindir}/wds-examples/desktop-source-test
     install -Dm 0755 ${B}/libwds/rtsp/tests/test-wds ${D}${bindir}/wds-examples/test-wds
     install -Dm 0755 ${B}/mirac_network/gst-test ${D}${bindir}/wds-examples/gst-test
@@ -26,9 +26,9 @@ do_install_append() {
 }
 
 PACKAGES =+ "${PN}-examples"
-FILES_${PN}-examples += "${bindir}/wds-examples/*"
+FILES:${PN}-examples += "${bindir}/wds-examples/*"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     connman-client \
     wpa-supplicant \
     gstreamer1.0-libav \

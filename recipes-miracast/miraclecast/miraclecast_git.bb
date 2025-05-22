@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/albfan/miraclecast"
 BUGTRACKER = "https://github.com/albfan/miraclecast/issues"
 LICENSE = "LGPLv2.1 & GPLv2"
 LIC_FILES_CHKSUM = "\
-    file://COPYING;md5=4bccef622c3121a149752612eeb441c2 \
+    file://COPYING;md5=7314adf793af1c4ce355355a659e6891 \
     file://LICENSE_htable;md5=2d5025d4aa3495befef8f17206a5b0a1 \
     file://LICENSE_gdhcp;md5=42c8401a5a2eda9c8e4419921d4e8559 \
     file://LICENSE_lgpl;md5=4fbd65380cdd255951079008b364516c \
@@ -18,7 +18,7 @@ inherit autotools bash-completion pkgconfig features_check
 REQUIRED_DISTRO_FEATURES = "systemd"
 
 SRC_URI = "git://github.com/albfan/miraclecast.git;protocol=https;branch=master"
-SRCREV = "fe9a39bee8b5fc05cca48b50a98426942826f5cb"
+SRCREV = "937747fd4de64a33bccf5adb73924c435ceb821b"
 
 S = "${WORKDIR}/git"
 
